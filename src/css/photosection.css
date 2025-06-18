@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  justify-content: flex-start; /* aligns content to the left */
+  align-items: center;
+  padding: 20px;
+  margin: 0;          /* remove margins */
+  position: relative;
+}
+

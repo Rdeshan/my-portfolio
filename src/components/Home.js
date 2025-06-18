@@ -1,4 +1,8 @@
 import { FaPython, FaReact, FaNodeJs, FaDatabase, FaJsSquare } from 'react-icons/fa';
+import '../css/photosection.css'
+import profilePic from '../myphoto.png';
+
+
 
 const skills = [
   { name: 'Python', icon: <FaPython color="#3776AB" /> },
@@ -9,17 +13,56 @@ const skills = [
 ];
 
 const Home = () => (
-  <div style={{ padding: '2rem', textAlign: 'center' }}>
-    <h1>Welcome to My Portfolio</h1>
-    <h2>My Technical Skills</h2>
-    <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+  <div style={{ padding: '2rem',display:"flex", fontFamily: 'Arial, sans-serif' }}>
+    
+    <div  className = "container">
+      <img  className="my-photo" 
+        src={profilePic}
+        style={{
+          width: 250,
+          height: 300,
+          borderRadius: '70%',
+          objectFit: 'cover',
+          boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
+          margin: '60px 60px 10px 10px ',
+          display: 'block',
+        }}
+      />
+    </div>
+
+    <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' ,marginTop:'70px',marginLeft:'50px'}}>Hi, I'm Ravindu Perera |</h1>
+
+   
+     {/*
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '2rem',
+        flexWrap: 'wrap',
+        marginTop: '1.5rem',
+      }}
+    >
+   
       {skills.map(({ name, icon }) => (
-        <div key={name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 100 }}>
+        <div
+          key={name}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: 100,
+            transition: 'transform 0.3s',
+          }}
+        >
           <div style={{ fontSize: '3rem' }}>{icon}</div>
-          <span style={{ marginTop: 8, fontWeight: 'bold' }}>{name}</span>
+          <span style={{ marginTop: 8, fontWeight: 'bold', fontSize: '0.9rem' }}>{name}</span>
         </div>
       ))}
     </div>
+    */}
+
+    
   </div>
 );
 
