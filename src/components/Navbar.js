@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import CV from'../myCV.pdf'
+import CV from '../myCV.pdf';
 import '../css/Navbar.css';
 
 const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Prevent background scroll when popup is open
   useEffect(() => {
-    if (showPopup) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
+    document.body.style.overflow = showPopup ? 'hidden' : 'auto';
   }, [showPopup]);
 
   return (
@@ -21,10 +18,16 @@ const Navbar = () => {
         <button className="resume-button" onClick={() => setShowPopup(true)}>
           Resume
         </button>
-        <div className="nav-links">
-          <Link to="/" style={linkStyle}>Home</Link>
-          <Link to="/about" style={linkStyle}>About</Link>
-          <Link to="/projects" style={linkStyle}>Projects</Link>
+
+        {/* ☰ menu icon only visible on mobile */}
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          ☰
+        </button>
+
+        <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
+          <Link to="/projects" onClick={() => setMenuOpen(false)}>Projects</Link>
         </div>
       </nav>
 
@@ -44,16 +47,6 @@ const Navbar = () => {
       )}
     </>
   );
-};
-
-const linkStyle = {
-  color: '#ffffff',
-  textDecoration: 'none',
-  fontWeight: 'bold',
-  fontSize: '18px',
-  padding: '6px 12px',
-  borderRadius: '5px',
-  transition: 'background 0.3s',
 };
 
 export default Navbar;
