@@ -17,7 +17,7 @@ const Home = () => (
     
     <div  className = "container">
       <img  className="my-photo" 
-        src={profilePic}
+        src={profilePic} alt ="ravindu perera"
         style={{
           width: 250,
           height: 300,
@@ -33,7 +33,7 @@ const Home = () => (
     <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' ,marginTop:'70px',marginLeft:'50px'}}>Hi, I'm Ravindu Perera |</h1>
 
    
-     {/*
+     
     <div
       style={{
         display: 'flex',
@@ -60,7 +60,7 @@ const Home = () => (
         </div>
       ))}
     </div>
-    */}
+    
 
     
   </div>
