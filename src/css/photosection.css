@@ -1,9 +1,81 @@
-.container {
-  display: flex;
-  justify-content: flex-start; /* aligns content to the left */
-  align-items: center;
-  padding: 20px;
-  margin: 0;          /* remove margins */
-  position: relative;
+.home-container {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
 }
 
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.my-photo {
+  width: 250px;
+  height: 300px;
+  border-radius: 70%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.intro-text {
+  font-size: 2.5rem;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.skill-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  transition: transform 0.3s;
+}
+
+.skill-icon {
+  font-size: 3rem;
+}
+
+.skill-name {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* 🔁 Responsive for mobile */
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: 2rem;
+  }
+
+  .my-photo {
+    width: 180px;
+    height: 220px;
+  }
+
+  .skill-box {
+    width: 80px;
+  }
+
+  .skill-icon {
+    font-size: 2.2rem;
+  }
+
+  .skill-name {
+    font-size: 0.8rem;
+  }
+}
