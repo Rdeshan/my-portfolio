@@ -1,44 +1,75 @@
+/* Background and layout */
 .home-container {
+  min-height: 100vh;
+  background-color: #f0f4f8; /* Light solid background */
+  color: #111;
+  overflow: hidden;
+  z-index: 1;
   padding: 2rem;
-  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+
 }
 
+/* Floating code design */
+.floating-element {
+  position: absolute;
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  opacity: 0.5;
+  animation: float 18s linear infinite;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+  }
+  100% {
+    transform: translateY(-120vh) translateX(10vw);
+  }
+}
+
+/* Profile section */
 .profile-section {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  position:relative;
+  margin-bottom: 2rem;
+  color: #111;
+  margin-top:-40px;
+  
 }
 
 .my-photo {
-  width: 250px;
-  height: 300px;
-  border-radius: 70%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position:absolute;
+  left:300px;
+  margin-left:-259px;
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
+  margin-top:70px;
 }
 
 .intro-text {
-  font-size: 2.5rem;
-  margin-top: 20px;
-  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
+/* Skills */
 .skills-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
 }
 
 .skill-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100px;
-  transition: transform 0.3s;
+  text-align: center;
+  color: #111;
 }
 
 .skill-icon {
@@ -46,36 +77,63 @@
 }
 
 .skill-name {
-  margin-top: 8px;
+  margin-top: 0.5rem;
   font-weight: bold;
-  font-size: 0.9rem;
+}
+/* Random floating directions */
+@keyframes float1 {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-120vh) translateX(20vw); }
 }
 
-/* 🔁 Responsive for mobile */
-@media (max-width: 768px) {
-  .profile-section {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .intro-text {
-    font-size: 2rem;
-  }
-
-  .my-photo {
-    width: 180px;
-    height: 220px;
-  }
-
-  .skill-box {
-    width: 80px;
-  }
-
-  .skill-icon {
-    font-size: 2.2rem;
-  }
-
-  .skill-name {
-    font-size: 0.8rem;
-  }
+@keyframes float2 {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-100vh) translateX(-15vw); }
 }
+
+@keyframes float3 {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-110vh) translateX(10vw); }
+}
+
+@keyframes float4 {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-130vh) translateX(-10vw); }
+}
+
+@keyframes float5 {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-115vh) translateX(5vw); }
+}
+
+@keyframes float6 {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-140vh) translateX(15vw); }
+}
+
+@keyframes float7 {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-100vh) translateX(-20vw); }
+}
+
+@keyframes float8 {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-130vh) translateX(8vw); }
+}
+
+@keyframes float9 {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-120vh) translateX(-12vw); }
+}
+
+/* Assign animations to each */
+.float1 { animation: float1 22s linear infinite; }
+.float2 { animation: float2 24s linear infinite; }
+.float3 { animation: float3 20s linear infinite; }
+.float4 { animation: float4 25s linear infinite; }
+.float5 { animation: float5 21s linear infinite; }
+.float6 { animation: float6 26s linear infinite; }
+.float7 { animation: float7 23s linear infinite; }
+.float8 { animation: float8 19s linear infinite; }
+.float9 { animation: float9 21s linear infinite; }
+

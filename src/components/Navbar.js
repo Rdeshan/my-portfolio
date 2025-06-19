@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaFileAlt } from 'react-icons/fa'; // black document icon
+
 import CV from '../myCV.pdf';
 import '../css/Navbar.css';
 
@@ -15,9 +17,11 @@ const Navbar = () => {
   return (
     <>
       <nav className="navbar">
-        <button className="resume-button" onClick={() => setShowPopup(true)}>
-          Resume
-        </button>
+       <button className="resume-button" onClick={() => setShowPopup(true)}>
+  <FaFileAlt style={{ marginRight: '8px' }} />
+  Resume
+</button>
+
 
         {/* ☰ menu icon only visible on mobile */}
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
