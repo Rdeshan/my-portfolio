@@ -13,9 +13,119 @@
 
 
 }
-.aboutme {
-  margin-top: 1rem;
+.blinking-cursor {
+  font-weight: bold;
+  font-size: 24px;
+  color: #333;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  margin-top:70px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.modal-form input,
+.modal-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
   font-size: 1rem;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.modal-buttons button:first-child {
+  background-color: #040727;
+  color: white;
+  
+}
+
+.modal-buttons button:last-child {
+  background-color: #c22f22;
+  color: white;
+}
+
+/* add feedback button*/
+.feedback-btn {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background-color: #e0e0e0;
+  color: #040727;
+  font-weight: bold;
+  border: 0.7px solid black;
+  font-size:0.9rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.Send-button button{
+  width:100px;
+  position:relative;
+  left:315px; 
+  background-color:#040727;
+  color:#ffffff;
+  height:30px;
+  border-radius:20px;
+  cursor:pointer;
+  margin:-10px;
+}
+
+.feedback-btn:hover {
+  background-color: #aaaaaa;
+}
+.copy-feedback-button{
+  display:flex;
+  gap: 1rem;
+}
+
+.aboutme {
+  margin-top: 0rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: #040727;
   background-color: rgba(255, 255, 255, 0.05);
@@ -25,7 +135,22 @@
   max-width: 600px;
   text-align: left;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-family:Calibri;
+;
 }
+.close-button button{
+  position:relative;
+  bottom:440px;
+  left:380px;
+  background-color:rgb(197, 48, 48);
+  color: rgb(255, 255, 255);
+  border: none;
+  font-size: 1rem;
+  padding: 5px  10px;
+  cursor: pointer;
+  border-radius: 20%;
+}
+
 .social-icons {
   margin-top: 2rem;
   margin-left:1.5px;
@@ -126,14 +251,7 @@
 
 
 
-.skill-icon {
-  font-size: 3rem;
-}
 
-.skill-name {
-  margin-top: 0.5rem;
-  font-weight: bold;
-}
 /* Random floating directions */
 @keyframes float1 {
   0% { transform: translateY(0) translateX(0); }

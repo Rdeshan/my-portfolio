@@ -19,7 +19,7 @@ const Navbar = () => {
       <nav className="navbar">
        <button className="resume-button" onClick={() => setShowPopup(true)}>
   <FaFileAlt style={{ marginRight: '8px' }} />
-  Resume
+      My Resume
 </button>
 
 
