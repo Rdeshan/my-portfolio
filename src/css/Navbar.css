@@ -121,12 +121,14 @@
   .nav-links {
     display: none;
     flex-direction: column;
-    width: 30px;
+    width: 100px;
     gap: 1rem;
     margin-top: 1rem;
+    margin-left: 4rem;
   }
 
   .nav-links.active {
+    width:10px;
     display: flex;
   }
 
