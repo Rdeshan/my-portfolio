@@ -1,50 +1,116 @@
 import { useState, useEffect } from "react";
 import { FaThumbsUp } from "react-icons/fa";
+import { db } from "./firebase";
+import {
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  increment,
+} from "firebase/firestore";
 
 const LikeButton = () => {
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
+  const [loading, setLoading] = useState(true);
 
-  // Load like state from localStorage on page load
+  const docRef = doc(db, "likes", "portfolio");
+
   useEffect(() => {
-    const hasLiked = localStorage.getItem("likedPortfolio");
-    const storedCount = localStorage.getItem("likeCount");
-    if (hasLiked === "true") {
-      setLiked(true);
-    }
-    if (storedCount) {
-      setLikeCount(parseInt(storedCount));
-    }
+    const fetchLikes = async () => {
+      try {
+        console.log("Fetching likes from Firestore...");
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          console.log("Document data:", data);
+          setLikeCount(data.count || 0);
+        } else {
+          console.log("Document does not exist. Creating with count=0");
+          await setDoc(docRef, { count: 0 });
+          setLikeCount(0);
+        }
+
+        const localLiked = localStorage.getItem("likedPortfolio");
+        setLiked(localLiked === "true");
+      } catch (fetchError) {
+        console.error("Error fetching likes:", fetchError);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchLikes();
   }, []);
 
-  const handleLikeToggle = () => {
-    if (liked) {
-      // Unlike
-      const newCount = Math.max(0, likeCount - 1);
-      setLiked(false);
-      setLikeCount(newCount);
-      localStorage.setItem("likedPortfolio", "false");
-      localStorage.setItem("likeCount", newCount.toString());
-    } else {
-      // Like
-      const newCount = likeCount + 1;
-      setLiked(true);
-      setLikeCount(newCount);
-      localStorage.setItem("likedPortfolio", "true");
-      localStorage.setItem("likeCount", newCount.toString());
+  const handleLikeToggle = async () => {
+    const newLiked = !liked;
+    const change = newLiked ? 1 : -1;
+
+    setLiked(newLiked);
+    setLikeCount((prev) => Math.max(0, prev + change));
+    localStorage.setItem("likedPortfolio", newLiked.toString());
+
+    try {
+      const docSnap = await getDoc(docRef);
+
+      if (!docSnap.exists()) {
+        console.log("Document missing during toggle. Creating count: 0");
+        await setDoc(docRef, { count: 0 });
+      }
+
+      const currentCount = docSnap.data()?.count ?? 0;
+
+      // Prevent negative likes
+      if (currentCount <= 0 && change === -1) {
+        console.warn("Prevented negative like count");
+        return;
+      }
+
+      await updateDoc(docRef, {
+        count: increment(change),
+      });
+
+      console.log("Like count updated successfully:", change > 0 ? "👍" : "👎");
+    } catch (error) {
+      console.error("Error updating like count:", error);
+
+      // Revert local state
+      setLiked(!newLiked);
+      setLikeCount((prev) => Math.max(0, prev - change));
+      localStorage.setItem("likedPortfolio", (!newLiked).toString());
     }
   };
+
+  if (loading) {
+    return (
+      <button
+        disabled
+        style={{
+          padding: "10px 15px",
+          height: "50px",
+          fontSize: "16px",
+          borderRadius: "8px",
+          cursor: "not-allowed",
+          opacity: 0.6,
+        }}
+      >
+        Loading...
+      </button>
+    );
+  }
 
   return (
     <button
       onClick={handleLikeToggle}
       style={{
-        position:'relative',
-        left:'150px',
+        position: "relative",
+        left: "150px",
         backgroundColor: liked ? "#040727" : "#e4e6eb",
         color: liked ? "white" : "#333",
         padding: "10px 15px",
-        height:"50px",
+        height: "50px",
         fontSize: "16px",
         borderRadius: "8px",
         display: "flex",
@@ -57,7 +123,9 @@ const LikeButton = () => {
       }}
     >
       <FaThumbsUp size={18} />
-      <span>{likeCount} {likeCount === 1 ? "Like" : "Likes"}</span>
+      <span>
+        {likeCount} {likeCount === 1 ? "Like" : "Likes"}
+      </span>
     </button>
   );
 };
