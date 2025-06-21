@@ -11,8 +11,6 @@ import {
 } from "react-icons/fa";
 import LikeButton from "./LikeButton.js";
 
-
-
 const Home = () => {
   const [copied, setCopied] = useState(false);
   const [typedText, setTypedText] = useState("");
@@ -55,12 +53,15 @@ const Home = () => {
   };
 
   return (
-    <div className="home-container" style={{ position: "relative", overflow: "hidden" }}>
+    <div
+      className="home-container"
+      style={{ position: "relative", overflow: "hidden" }}
+    >
       <WaveBackground />
 
       {/* Floating elements (unchanged) */}
       {/* ...keep your floating code snippets here... */}
-           <div
+      <div
         className="floating-element float1"
         style={{ left: "10%", top: "90%" }}
       >
@@ -122,14 +123,19 @@ const Home = () => {
       </div>
       <div className="profile-section">
         <div className="profile-box">
-          <img className="my-photo" src={profilePic} alt="ravindu perera" />
-          <div className="name-about" >
-            <div style={{display:'flex',gap:'1rem'}}>
-            <h1 className="intro-text">
-              {typedText}
-              {showCursor && <span className="blinking-cursor">|</span>}
-            </h1>
-            <LikeButton />
+          <div className="image-place">
+            <img className="my-photo" src={profilePic} alt="ravindu perera" />
+          </div>
+          <div className="name-about">
+            <div className="header1" style={{ display: "flex", gap: "1rem" }}>
+              <h1 className="intro-text">
+                {typedText}
+                {showCursor && <span className="blinking-cursor">|</span>}
+              </h1>
+              <div className="like-button-wrapper">
+               
+                <LikeButton />
+              </div>
             </div>
 
             <div className="aboutme">
@@ -140,10 +146,18 @@ const Home = () => {
             </div>
 
             <div className="social-icons">
-              <a href="https://linkedin.com/in/ravindu-d-perera" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://linkedin.com/in/ravindu-d-perera"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaLinkedin size={31} color="#0A66C2" />
               </a>
-              <a href="https://github.com/Rdeshan" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/Rdeshan"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaGithub size={30} color="#171515" />
               </a>
               <a
@@ -186,24 +200,24 @@ const Home = () => {
       {showFeedbackModal && (
         <div className="modal-overlay">
           <div className="modal-box">
-            
-
             <h2 className="modal-title">Portfolio Feedback</h2>
-            <p>Let me know what you think about my site! Your suggestions are always welcome.</p>
+            <p>
+              Let me know what you think about my site! Your suggestions are
+              always welcome.
+            </p>
             <form
               action="https://formsubmit.co/deshr.perera03@gmail.com"
               method="POST"
               className="modal-form"
             >
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://ravindudeshanperera.netlify.app" />
-
               <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-               
+                type="hidden"
+                name="_next"
+                value="https://ravindudeshanperera.netlify.app"
               />
+
+              <input type="text" name="name" placeholder="Your Name" />
               <input
                 type="email"
                 name="email"
@@ -216,21 +230,27 @@ const Home = () => {
                 rows="4"
                 required
               ></textarea>
-              <p><b>Rate my portfolio(4-highrate)</b></p>
-             <label style={{display:'flex', gap:'40px'}}>
-              <input type="radio"  name="rate"  /> 1
-              <input type="radio" name="rate" /> 2
-              <input type="radio" name="rate" /> 3
-              <input type="radio" name="rate" /> 4
-             </label>
-          
-                 <div className="Send-button">
-                <button type="submit" >Send</button>
-                </div>
-                <div className="close-button">
-                <button type="button"  onClick={() => setShowFeedbackModal(false)}>✕</button>
-                </div>
-              
+              <p>
+                <b>Rate my portfolio(4-highrate)</b>
+              </p>
+              <label style={{ display: "flex", gap: "40px" }}>
+                <input type="radio" name="rate" /> 1
+                <input type="radio" name="rate" /> 2
+                <input type="radio" name="rate" /> 3
+                <input type="radio" name="rate" /> 4
+              </label>
+
+              <div className="Send-button">
+                <button type="submit">Send</button>
+              </div>
+              <div className="close-button">
+                <button
+                  type="button"
+                  onClick={() => setShowFeedbackModal(false)}
+                >
+                  ✕
+                </button>
+              </div>
             </form>
           </div>
         </div>
