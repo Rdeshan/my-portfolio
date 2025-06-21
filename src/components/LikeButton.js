@@ -14,9 +14,11 @@ const LikeButton = () => {
   const [likeCount, setLikeCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  const docRef = doc(db, "likes", "portfolio");
+  
 
   useEffect(() => {
+    const docRef = doc(db, "likes", "portfolio");
+
     const fetchLikes = async () => {
       try {
         console.log("Fetching likes from Firestore...");
@@ -45,6 +47,7 @@ const LikeButton = () => {
   }, []);
 
   const handleLikeToggle = async () => {
+     const docRef = doc(db, "likes", "portfolio"); 
     const newLiked = !liked;
     const change = newLiked ? 1 : -1;
 
