@@ -319,26 +319,85 @@
   .profile-section {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 1rem;
+  }
+
+  .profile-box {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .my-photo {
+    position: static;
+    width: 200px;
+    height: 200px;
+    justify-content:center;
+    margin-top: 2rem;
+     margin-bottom: -3px;
+    margin-left:1rem;
   }
 
   .name-about {
-    margin-top: 1rem;
+    position: static;
+    left: auto;
+    top: auto;
+    margin-top: 1.5rem;
     padding: 0 1rem;
   }
 
-  .my-photo,
-  .circle-bg {
-    width: 220px;
-    height: 220px;
+  .aboutme {
+    margin: 1rem auto;
+    font-size: 1rem;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .social-icons {
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .copy-feedback-button {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .copy-email-btn,
+  .feedback-btn {
+    width: 200px;
+    justify-content: center;
   }
 
   .intro-text {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
-  .aboutme {
-    font-size: 0.95rem;
+  .header1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
+.like-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* or a specific height */
+}
+.modal-box {
+    width: 80%;
+    padding: 2rem;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+
+
 }

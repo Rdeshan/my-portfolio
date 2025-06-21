@@ -109,10 +109,10 @@ const LikeButton = () => {
       onClick={handleLikeToggle}
       style={{
         position: "relative",
-        left: "150px",
+        left: "10px",
         backgroundColor: liked ? "#040727" : "#e4e6eb",
         color: liked ? "white" : "#333",
-        padding: "10px 15px",
+        padding: "1px 15px",
         height: "50px",
         fontSize: "16px",
         borderRadius: "8px",
