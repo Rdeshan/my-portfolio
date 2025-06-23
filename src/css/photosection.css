@@ -5,6 +5,7 @@
   color: #111;
   overflow: hidden;
   z-index: 1;
+  align-items:center;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -190,14 +191,14 @@
   }
 }
 
-/* Profile section */
 .profile-section {
-  display:flex;
-  position:relative;
-  margin-bottom: 2rem;
+  display: flex;
+  position: relative;
   color: #111;
-  margin-top:-40px;
-  
+  margin-top: -40px;
+  margin-right: 600px; /* For large screens */
+  justify-content: flex-start;
+  flex-wrap: nowrap;
 }
 .name-about{
   position:relative;
@@ -220,7 +221,6 @@
   margin-left:-259px;
   object-fit: cover;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  margin-bottom: 1rem;
   margin-top:70px;
 }
 
@@ -315,14 +315,13 @@
 .float10 { animation: float10 23s linear infinite; }
 
 /* ✅ MOBILE LAYOUT */
-@media (max-width: 768px) {
-  .profile-section {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 1rem;
-  }
+@media (max-width: 1024px) {
+.profile-section {
+    margin-right: 0;          /* Remove large right margin */
+    justify-content: center;  /* Center content */
+    flex-wrap: wrap;          /* Allow wrapping */
+    margin-top: 10px ;   
+         }         /* Adjust margin if needed */
 
   .profile-box {
     position: static;
