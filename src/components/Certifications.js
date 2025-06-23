@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/About.css"; // reuse the same CSS
 import { FaArrowRight } from "react-icons/fa";
 
@@ -46,14 +46,24 @@ const certificationData = [
 ];
 
 const Certifications = () => {
+  const [expanded, setExpanded] = useState(false);
+  const isMobile = window.innerWidth <= 600;
+  const visibleCerts = isMobile && !expanded ? certificationData.slice(0, 2) : certificationData;
+
   return (
     <div className="about-card certifications-wrapper">
-      <h3>Certifications  🏆</h3>
+      <h3>
+        Certifications  🏆
+        {isMobile && (
+          <span style={{ fontSize: "1rem", marginLeft: 8, color: "#555" }}>
+            ({certificationData.length})
+          </span>
+        )}
+      </h3>
       <div className="certification-cards">
-        {certificationData.map((cert, index) => (
+        {visibleCerts.map((cert, index) => (
           <div className="cert-card-v2" key={index}>
             {/* Header with logo + name */}
-
             <div className="cert-header-v2">
               <img src={cert.logo} alt="logo" className="cert-logo" />
               <div className="tittle-issure">
@@ -61,7 +71,6 @@ const Certifications = () => {
                 <p className="cert-issure">{cert.issuer}</p>
               </div>
             </div>
-
             {/* Certificate image + view button */}
             <div className="cert-image-wrapper">
               <img src={cert.image} alt={cert.title} className="cert-image" />
@@ -74,17 +83,33 @@ const Certifications = () => {
                 View <FaArrowRight />
               </a>
             </div>
-
             {/* Credential ID */}
-           {cert.credentialId && (
-  <p className="credential-id">
-    Credential ID: <strong>{cert.credentialId}</strong>
-  </p>
-)}
-
+            {cert.credentialId && (
+              <p className="credential-id">
+                Credential ID: <strong>{cert.credentialId}</strong>
+              </p>
+            )}
           </div>
         ))}
       </div>
+      {isMobile && !expanded && certificationData.length > 2 && (
+        <div style={{ textAlign: "center", marginTop: 10 }}>
+          <button
+            style={{
+              background: "none",
+              border: "none",
+              color: "#007bff",
+              fontWeight: "bold",
+              cursor: "pointer",
+              fontSize: "1rem",
+              textDecoration: "underline"
+            }}
+            onClick={() => setExpanded(true)}
+          >
+            See more
+          </button>
+        </div>
+      )}
     </div>
   );
 };

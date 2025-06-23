@@ -366,3 +366,87 @@
 .about-card a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 16px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .about-card,
+  .about-card.skills,
+  .about-center-column {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 16px 8px;
+    box-sizing: border-box;
+  }
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    justify-items: center;
+    width: 100%;
+    max-width: 100%;
+  }
+  .skill-item {
+    width: 80px;
+    min-width: 0;
+    max-width: 100%;
+    height: 60px;
+    font-size: 0.95rem;
+    padding: 2px;
+  }
+  .certification-cards {
+    grid-template-columns: 1fr;
+    max-height: none;
+    gap: 12px;
+  }
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+  .cert-image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    min-width: 120px;
+    border-radius: 8px;
+    margin-left: 0;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 20px 2vw 2vw 2vw;
+  }
+  .about-card {
+    padding: 12px 4px;
+    font-size: 0.95rem;
+  }
+  .section-title {
+    font-size: 1.2rem;
+  }
+  .skill-item {
+    width: 5vw;
+    min-width: 90px;
+    height: 50px;
+    font-size: 0.9rem;
+  }
+  .cert-image {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    min-width: 80px;
+    margin-left: 0;
+    object-fit: contain;
+  }
+}
