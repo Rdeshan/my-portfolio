@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../css/About.css"; // Your CSS file
-// Add this at the top
 import Certifications from "./Certifications";
 import Educations from "./Educations";
 import {
@@ -19,8 +18,8 @@ import ParticlesBackground from "./ParticlesBackground";
 const About = () => {
     const currentStatus = [
         {
-            campus_Status: "🎓 3rd Year Undergraduate at SLIIT  ",
-            passion: "🧠 Passionate about full-stack development ",
+            campus_Status: "🎓 3rd Year 1st semester, Undergraduate at Student SLIIT  ",
+            passion: "🧠 Passionate about full-stack development , UI design ,Web application developing ",
             building: "🛠️ Building: Student Management System (MERN)",
             learning: "🚀 Learning: React.js, Node.js, MongoDB, Express.js, Firebase, Email.js, css"
         }
