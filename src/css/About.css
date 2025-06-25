@@ -344,10 +344,7 @@
 
 /* Responsive (mobile-friendly) */
 @media (max-width: 768px) {
-  .about-grid {
-   
-  }
-
+ 
   .about-center-column {
     flex-direction: column;
   }
@@ -370,7 +367,7 @@
   text-decoration: underline;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .about-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -411,46 +408,28 @@
     gap: 12px;
   }
   .section-title {
-    font-size: 1.5rem;
-    margin-bottom: 0;
-  }
-  .cert-image {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    min-width: 120px;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: #040727;
+    
     border-radius: 8px;
-    margin-left: 0;
-    display: block;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-    object-fit: contain;
+    padding: 8px 0;
+    text-align: center;
   }
-}
-
-@media (max-width: 600px) {
+  .professional-overview.card {
+    padding: 10px 4px;
+    font-size: 1rem;
+    background: #040727;
+    color: #fff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
   .about-section {
     padding: 20px 2vw 2vw 2vw;
+    margin-top: 70px; /* Add space for fixed navbar */
   }
-  .about-card {
-    padding: 12px 4px;
-    font-size: 0.95rem;
-  }
-  .section-title {
-    font-size: 1.2rem;
-  }
-  .skill-item {
-    width: 5vw;
-    min-width: 90px;
-    height: 50px;
-    font-size: 0.9rem;
-  }
-  .cert-image {
-    width: 100%;
-    max-width: 180px;
-    height: auto;
-    min-width: 80px;
-    margin-left: 0;
-    object-fit: contain;
+  .about-card a:hover {
+    text-decoration: underline;
   }
 }
 
