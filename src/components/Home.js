@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import LikeButton from "./LikeButton.js";
 
+
 const Home = () => {
   const [copied, setCopied] = useState(false);
   const [typedText, setTypedText] = useState("");
@@ -58,7 +59,7 @@ const Home = () => {
       style={{ position: "relative", overflow: "hidden" }}
     >
       <WaveBackground />
-
+      
       {/* Floating elements (unchanged) */}
       {/* ...keep your floating code snippets here... */}
       <div

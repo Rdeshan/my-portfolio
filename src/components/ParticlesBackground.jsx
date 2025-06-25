@@ -43,7 +43,7 @@ const ParticlesBackground = () => {
             enable: true,
             outModes: { default: "bounce" },
             random: false,
-            speed: 1.5,
+            speed: 1.6,
             straight: false,
           },
           number: { density: { enable: true, area: 800 }, value: 80 },
