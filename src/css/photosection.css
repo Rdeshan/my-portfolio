@@ -181,7 +181,7 @@
   white-space: nowrap;
   pointer-events: none;
 }
-
+/*
 @keyframes float {
   0% {
     transform: translateY(100vh) translateX(0);
@@ -190,13 +190,14 @@
     transform: translateY(-120vh) translateX(10vw);
   }
 }
+*/
 
 .profile-section {
   display: flex;
   position: relative;
   color: #111;
   margin-top: -40px;
-  margin-right: 600px; /* For large screens */
+  margin-right: 600px; 
   justify-content: flex-start;
   flex-wrap: nowrap;
 }
@@ -250,9 +251,9 @@
 }
 
 
+/*
 
 
-/* Random floating directions */
 @keyframes float1 {
   0% { transform: translateY(0) translateX(0); }
   100% { transform: translateY(-120vh) translateX(20vw); }
@@ -302,7 +303,7 @@
   0% { transform: translateY(0) translateX(0); }
   100% { transform: translateY(-155vh) translateX(-10vw); }
 }
-/* Assign animations to each */
+
 .float1 { animation: float1 22s linear infinite; }
 .float2 { animation: float2 24s linear infinite; }
 .float3 { animation: float3 25s linear infinite; }
@@ -313,6 +314,8 @@
 .float8 { animation: float8 19s linear infinite; }
 .float9 { animation: float9 21s linear infinite; }
 .float10 { animation: float10 23s linear infinite; }
+*/
+
 
 /* ✅ MOBILE LAYOUT */
 @media (max-width: 1024px) {
